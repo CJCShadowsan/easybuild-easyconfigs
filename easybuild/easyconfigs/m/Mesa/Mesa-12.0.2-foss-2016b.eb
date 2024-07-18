@@ -10,7 +10,7 @@ easyblock = 'ConfigureMake'
 name = 'Mesa'
 version = '12.0.2'
 
-homepage = 'http://www.mesa3d.org/'
+homepage = 'https://www.mesa3d.org/'
 description = """Mesa is an open-source implementation of the OpenGL specification -
  a system for rendering interactive 3D graphics."""
 
@@ -19,12 +19,14 @@ toolchain = {'name': 'foss', 'version': '2016b'}
 # -xHost, this always gets overwritten and will fail.
 toolchainopts = {'optarch': False}
 
-sources = [SOURCELOWER_TAR_XZ]
 source_urls = [
     'https://mesa.freedesktop.org/archive/%(version)s',
     'ftp://ftp.freedesktop.org/pub/mesa/%(version)s',
     'ftp://ftp.freedesktop.org/pub/mesa/older-versions/%(version_major)s.x/%(version)s',
+    'ftp://ftp.freedesktop.org/pub/mesa/older-versions/%(version_major)s.x',
 ]
+sources = [SOURCELOWER_TAR_XZ]
+checksums = ['d957a5cc371dcd7ff2aa0d87492f263aece46f79352f4520039b58b1f32552cb']
 
 builddependencies = [
     ('flex', '2.6.0'),
@@ -49,10 +51,13 @@ configopts += " --disable-driglx-direct --with-gallium-drivers='swrast,swr' --di
 configopts += " --with-osmesa-bits=32 --enable-texture-float --enable-llvm-shared-libs "
 
 sanity_check_paths = {
-    'files': ['lib/libGL.%s' % SHLIB_EXT, 'lib/libOSMesa.%s' % SHLIB_EXT, 'lib/libGLESv1_CM.%s' % SHLIB_EXT,
-              'lib/libGLESv2.%s' %SHLIB_EXT, 'include/GL/glext.h', 'include/GL/gl_mangle.h', 'include/GL/glx.h',
-              'include/GL/osmesa.h', 'include/GL/wglext.h', 'include/GL/gl.h', 'include/GL/glxext.h',
-              'include/GL/glx_mangle.h', 'include/GLES/gl.h', 'include/GLES2/gl2.h', 'include/GLES3/gl3.h'],
+    'files': ['lib/libGL.%s' % SHLIB_EXT, 'lib/libOSMesa.%s' % SHLIB_EXT,
+              'lib/libGLESv1_CM.%s' % SHLIB_EXT, 'lib/libGLESv2.%s' % SHLIB_EXT,
+              'include/GL/glext.h', 'include/GL/gl_mangle.h',
+              'include/GL/glx.h', 'include/GL/osmesa.h',
+              'include/GL/gl.h', 'include/GL/glxext.h',
+              'include/GL/glx_mangle.h', 'include/GLES/gl.h',
+              'include/GLES2/gl2.h', 'include/GLES3/gl3.h'],
     'dirs': []
 }
 

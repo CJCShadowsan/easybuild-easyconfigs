@@ -2,7 +2,7 @@ easyblock = 'PythonPackage'
 
 name = 'networkx'
 version = '1.11'
-versionsuffix = '-Python-%(pyver)s' 
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://pypi.python.org/pypi/networkx'
 description = """NetworkX is a Python package for the creation, manipulation, and study of the structure, dynamics,
@@ -10,7 +10,6 @@ description = """NetworkX is a Python package for the creation, manipulation, an
 
 toolchain = {'name': 'foss', 'version': '2016a'}
 
-source_urls = [PYPI_SOURCE]
 sources = [SOURCE_TAR_GZ]
 
 dependencies = [

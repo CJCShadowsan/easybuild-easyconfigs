@@ -10,7 +10,6 @@ and evaluate mathematical expressions involving multi-dimensional arrays efficie
 
 toolchain = {'name': 'foss', 'version': '2016a'}
 
-source_urls = [PYPI_SOURCE]
 sources = [SOURCE_TAR_GZ]
 
 dependencies = [('Python', '2.7.11')]
@@ -18,7 +17,7 @@ dependencies = [('Python', '2.7.11')]
 builddependencies = [('nose-parameterized', '0.5.0', versionsuffix)]
 
 # The tests take very long to finish (they are installed too)
-#runtest = 'nosetests theano'
+# runtest = 'nosetests theano'
 
 sanity_check_paths = {
     'files': ['bin/theano-cache', 'bin/theano-nose', 'bin/theano-test'],
